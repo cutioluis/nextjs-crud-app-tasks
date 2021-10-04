@@ -1,11 +1,13 @@
 import React from "react";
+import GlobalStyles from "../styles/GlobalStyles";
 import Layout from "../Layout/Layout";
 
 const Home = () => {
   return (
-    <div>
+    <>
+      <GlobalStyles />
       <Layout></Layout>
-    </div>
+    </>
   );
 };
 
