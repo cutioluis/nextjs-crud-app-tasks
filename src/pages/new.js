@@ -22,7 +22,6 @@ const AlertForm = styled.p`
 `;
 
 const Input = styled.input.attrs((props) => ({
-  type: "text",
   size: props.size || "50px",
 }))`
   width: 380px;
@@ -50,7 +49,7 @@ const ButtonContainer = styled.div`
 `;
 
 const NewLogin = () => {
-  const { createTask } = useTask();
+  const { createTask, updateTask, tasks } = useTask();
   const { push, query } = useRouter();
 
   const [task, setTask] = useState({
@@ -65,18 +64,18 @@ const NewLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-/* 
-    push("/");  */
     if (!query.id) {
       createTask(task.title, task.description);
-
     } else {
-      console.log('Updating');
+      updateTask(query.id, task);
     }
+    push("/");
   };
 
   useEffect(() => {
     if (query.id) {
+      const taskFound = tasks.find((task) => task.id === query.id);
+      setTask({ title: taskFound.title, description: taskFound.description });
     }
   }, []);
 
@@ -86,22 +85,25 @@ const NewLogin = () => {
         <ContainerForm>
           <Form onSubmit={handleSubmit}>
             <AlertForm>Pls complete the inputs</AlertForm>
-
-            <span>{query.id ? "Edit this title" : "Give a title"}</span>
-            <Input onChange={handleChange} id="email" name="title" />
-
+            <span>{query.id ? "Edit this title" : "Write a title"}</span>
+            <Input
+              values={task.title}
+              onChange={handleChange}
+              id="email"
+              name="title"
+            />
             <span>
-              {query.id ? "Edit this dscription" : "Here any dscription"}
+              {query.id ? "Edit this description" : "Write a description"}
             </span>
             <Input
               onChange={handleChange}
               size="150px"
               id="textarea"
+              value={task.description}
               name="description"
             />
-
             <ButtonContainer>
-              <button>Add Task</button>
+              <button>{query.id ? "Edit task" : "Add task"}</button>
             </ButtonContainer>
           </Form>
         </ContainerForm>

@@ -3,7 +3,7 @@ import Layout from "../Layout/Layout";
 import EmptyTasks from "../components/EmptyTasks";
 import styled from "styled-components";
 
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { BsFillCircleFill } from "react-icons/bs";
 import { SIZES, COLORS } from "../constants/constants";
 import { useTask } from "../context/TaskContext";
@@ -69,8 +69,9 @@ const TaskDescription = styled.div`
 /* ----------------- */
 
 const Home = () => {
+  const { tasks, deleteTask } = useTask();
   const { push } = useRouter();
-  const { tasks } = useTask();
+
   return (
     <>
       <Layout>
@@ -82,7 +83,7 @@ const Home = () => {
               <Task key={task.id}>
                 <TaskControls>
                   <Icon onClick={() => push(`/edit/${task.id}`)} edit="true" />
-                  <Icon />
+                  <Icon onClick={() => deleteTask(task.id)} />
                 </TaskControls>
                 <TaskDetails>
                   <TaskId>{i}</TaskId>
