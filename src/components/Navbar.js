@@ -1,25 +1,43 @@
 import styled from "styled-components";
+import Link from "next/link";
+import { useRouter } from 'next/router'
+import { useTask } from "../context/TaskContext";
 import { SIZES, COLORS, FONTS } from "../constants/constants";
 
+
+
 const Navbar = () => {
+
+  const router = useRouter()
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push('/new')
+  }
+
+  const { tasks } = useTask();
   return (
     <Navgigation>
       <NavLeft>
-        <Logo>Nextjs Task’s</Logo>
-        <Tasks>3 task’s</Tasks>
+        <Link href="/" passHref>
+          <Logo>Nextjs Task’s</Logo>
+        </Link>
+        <Tasks>{tasks.length} task’s</Tasks>
       </NavLeft>
-      <Button>Add Task</Button>
+      <Button onClick={handleClick}>Add Task</Button>
     </Navgigation>
   );
 };
 
+/*--------------- Styled Components ----------------- */
+
 const Navgigation = styled.nav`
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   padding: ${SIZES.padding}px;
   margin: ${SIZES.margin};
   justify-content: space-around;
-  background-color: #1a171c;
 `;
 
 const NavLeft = styled.div`
@@ -27,7 +45,7 @@ const NavLeft = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.p`
+const Logo = styled.a`
   font-size: ${FONTS.logo}px;
 `;
 
@@ -40,9 +58,15 @@ const Tasks = styled.p`
 const Button = styled.button`
   border-radius: ${SIZES.borderRadius}px;
   border: none;
-  background: ${COLORS.blackSmoke};
+  background: ${COLORS.green};
   height: ${SIZES.height}px;
   width: ${SIZES.width}px;
-`;
 
+  &:hover {
+    cursor: pointer;
+    transition: 150ms;
+    background: #30c86d;
+  }
+`;
+  
 export default Navbar;

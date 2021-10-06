@@ -1,11 +1,14 @@
 const SIZES = {
   margin: "10",
+  marginAreas: '50',
   padding: "20",
   /* Buttons */
   height: "40",
   width: "120",
   /* Cards */
-  borderRadius: "20"
+  borderRadius: "20",
+  heightInput: "50px",
+  heightTextArea: '90px',
 };
 
 const COLORS = {

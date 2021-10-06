@@ -3,6 +3,8 @@ import { COLORS } from "../constants/constants";
 
 const GlobalStyles = createGlobalStyle`
   * {
+    padding:0;
+    margin: 0;
       color: ${COLORS.white};
 
     box-sizing: border-box;
@@ -14,9 +16,6 @@ const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
   }
   body {
-    padding:0;
-    margin: 0;
-
     background-color: ${COLORS.black};
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
