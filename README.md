@@ -11,7 +11,7 @@
     <img alt="License: MIT" src="https://img.shields.io/github/license/SGarcia710/sgarcia-portfolio" />
   </a>
   <a href="https://twitter.com/sebg96" target="_blank">
-    <img alt="Twitter: cutioluis" src="https://img.shields.io/twitter/follow/sebg96.svg?style=social" />
+    <img alt="Twitter: cutioluis" src="https://img.shields.io/twitter/follow/cutioluis.svg?style=social" />
   </a>
 </p>
 
