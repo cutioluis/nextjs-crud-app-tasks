@@ -11,7 +11,7 @@
   <a href="https://github.com/SGarcia710/sgarcia-portfolio-nextjs/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/SGarcia710/sgarcia-portfolio" />
   </a>
-  <a href="https://twitter.com/sebg96" target="_blank">
+  <a href="https://twitter.com/cutioluis" target="_blank">
     <img alt="Twitter: cutioluis" src="https://img.shields.io/twitter/follow/cutioluis.svg?style=social" />
   </a>
 </p>
